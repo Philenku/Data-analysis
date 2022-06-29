@@ -4,7 +4,9 @@ import { Component, OnInit } from '@angular/core';
   selector: 'lib-starter-library',
   template: `
     <p>
-      starter-library works!
+      <strong>
+      If you can see this, that means that StarterLibraryComponent is working!
+      </strong>
     </p>
   `,
   styles: [
