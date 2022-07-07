@@ -4,6 +4,7 @@ import { StarterLibraryModule } from 'projects/starter-library/src/public-api';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { DataAnalysisModule } from 'projects/data-analysis/src/public-api';
 
 @NgModule({
   declarations: [
@@ -12,7 +13,8 @@ import { AppComponent } from './app.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    StarterLibraryModule
+    StarterLibraryModule,
+    DataAnalysisModule
   ],
   providers: [],
   bootstrap: [AppComponent]
