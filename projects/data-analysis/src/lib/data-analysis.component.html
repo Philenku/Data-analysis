@@ -1,0 +1,14 @@
+{{((rows | async) ?? []).length}} entries loaded from server.
+
+
+
+<h1>
+    Data entries:
+</h1>
+<table>
+    <tr *ngFor="let row of (fields | async)">
+        <td>
+            {{row | json}}
+        </td>
+    </tr>
+</table>
