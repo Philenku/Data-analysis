@@ -3,11 +3,12 @@ import { HttpClient } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { ApiService, ObservationApiService } from 'anecdata-ngcore';
 import { DataAnalysisComponent } from './data-analysis.component';
+import { NgxChartsModule }from '@swimlane/ngx-charts';
 
 
 
 @NgModule({
-  imports: [CommonModule],
+  imports: [NgxChartsModule,CommonModule],
   declarations: [DataAnalysisComponent],
  
   exports: [DataAnalysisComponent],

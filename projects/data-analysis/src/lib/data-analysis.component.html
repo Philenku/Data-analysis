@@ -1,3 +1,20 @@
 <h1>
     Data entries loaded: {{((fields | async) ?? []).length}}
 </h1>
+<h2>
+    Sample Visualization
+</h2>
+<ngx-charts-bar-vertical 
+  class="charts"
+  [view]="[1000,300]"
+  [results]="sample_visual[0]"
+  [xAxisLabel]="'Type of trashes'"
+  [legendTitle]="'Legend'"
+  [yAxisLabel]="'Count'"
+  [legend]="true"
+  [showXAxisLabel]="true"
+  [showYAxisLabel]="true"
+  [xAxis]="true"
+  [yAxis]="true"
+  [gradient]="false">
+</ngx-charts-bar-vertical>
