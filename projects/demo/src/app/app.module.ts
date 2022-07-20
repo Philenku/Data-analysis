@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AnecdataCoreModule } from 'anecdata-ngcore';
 import { DataAnalysisModule } from 'dist/data-analysis';
-import { StarterLibraryModule } from 'projects/starter-library/src/public-api';
+// import { StarterLibraryModule } from 'projects/starter-library/src/public-api';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
@@ -11,11 +11,10 @@ import { AppComponent } from './app.component';
   declarations: [AppComponent],
   imports: [
     HttpClientModule,
-
     DataAnalysisModule,
     BrowserModule,
     AppRoutingModule,
-    StarterLibraryModule,
+    // StarterLibraryModule,
     AnecdataCoreModule.forRoot({
       apiKey: '93752983567823965823965872365872',
       appName: 'ng-analysis-demo',
