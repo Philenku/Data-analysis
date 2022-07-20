@@ -6,11 +6,13 @@ import { DataAnalysisModule } from 'dist/data-analysis';
 // import { StarterLibraryModule } from 'projects/starter-library/src/public-api';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     HttpClientModule,
+    BrowserAnimationsModule,
     DataAnalysisModule,
     BrowserModule,
     AppRoutingModule,
