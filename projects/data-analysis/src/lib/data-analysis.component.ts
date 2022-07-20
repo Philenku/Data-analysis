@@ -72,7 +72,7 @@ export class DataAnalysisComponent {
             num = 1
           }
         }else{
-          for(let i=0;i<79;i++){
+          for(let i=0;i<newdf.length;i++){
             alldf[i].push(tempdf[i])
           }
         }
@@ -93,6 +93,7 @@ export class DataAnalysisComponent {
 
     })
     .summarize({
+      Num_bottles : series => series.sum(),
       Plastic_Lids : series => series.sum() ,
       Bottle_Caps  : series => series.sum() ,
       Forks_Knives_and_Spoons  : series => series.sum() ,
