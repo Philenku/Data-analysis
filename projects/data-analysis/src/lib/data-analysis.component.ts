@@ -1,9 +1,9 @@
-import { Component, Input, SimpleChanges } from '@angular/core';
-import { DataItem } from '@swimlane/ngx-charts';
-import { FieldData, ObservationApiService } from 'anecdata-ngcore';
-import { RowQueryData } from 'anecdata-ngcore/lib/interfaces/observations/RowQueryData';
-import { RowResultData } from 'anecdata-ngcore/lib/interfaces/observations/RowResultData';
-import { DataFrame, fromJSON, ISeries, Series } from 'data-forge';
+import { Component, Input, SimpleChanges } from "@angular/core";
+import { DataItem } from "@swimlane/ngx-charts";
+import { FieldData, ObservationApiService } from "anecdata-ngcore";
+import { RowQueryData } from "anecdata-ngcore/lib/interfaces/observations/RowQueryData";
+import { RowResultData } from "anecdata-ngcore/lib/interfaces/observations/RowResultData";
+import { DataFrame, fromJSON, ISeries, Series } from "data-forge";
 import {
   BehaviorSubject,
   debounceTime,
@@ -12,17 +12,17 @@ import {
   shareReplay,
   Subject,
   switchMap,
-} from 'rxjs';
+} from "rxjs";
 @Component({
-  selector: 'lib-data-analysis',
-  templateUrl: './data-analysis.component.html',
-  styleUrls: ['./data-analysis.component.scss'],
+  selector: "lib-data-analysis",
+  templateUrl: "./data-analysis.component.html",
+  styleUrls: ["./data-analysis.component.scss"],
 })
 export class DataAnalysisComponent {
   @Input() query: RowQueryData = {};
 
   rows: Observable<RowResultData[]> = new Subject();
-  fields: Observable<RowResultData['Field'][]> = new Subject();
+  fields: Observable<RowResultData["Field"][]> = new Subject();
 
   // Observable of all query changes. Everything listens to this.
   queryChanges: BehaviorSubject<RowQueryData> = new BehaviorSubject({});
@@ -71,7 +71,7 @@ export class DataAnalysisComponent {
 
       rowFields
         // Only include numbers in the object
-        .filter((field) => field.type === 'number')
+        .filter((field) => field.type === "number")
         .forEach((field) => {
           // Convert the value to a floating-point number
           let val = parseFloat(field.numeric_value as any as string);
@@ -105,7 +105,7 @@ export class DataAnalysisComponent {
 
     const results = df.summarize(summarizers);
 
-    console.log('results', results);
+    console.log("results", results);
 
     /**
      * Create an object that ngx-charts can understand:
@@ -136,7 +136,7 @@ export class DataAnalysisComponent {
       var newdf: any[] = [];
 
       for (const value of series) {
-        const tjson = value['value'];
+        const tjson = value["value"];
         newdf.push(tjson);
       }
 
@@ -159,18 +159,18 @@ export class DataAnalysisComponent {
 
     const df_sum = fromJSON(JSON.stringify(alldf))
       .renameSeries({
-        '0': 'Num_bottles',
-        '1': 'Plastic_Lids',
-        '2': 'Bottle_Caps',
-        '3': 'Forks_Knives_and_Spoons',
+        "0": "Num_bottles",
+        "1": "Plastic_Lids",
+        "2": "Bottle_Caps",
+        "3": "Forks_Knives_and_Spoons",
 
-        '4': 'Plastic_Straws',
-        '5': 'Food_wrappers',
-        '6': 'Cigarette_Filters',
-        '7': 'Vape_Cartridges',
-        '8': 'Foam_Pieces',
-        '9': 'Glass_Pieces',
-        '10': 'Plastic_pieces',
+        "4": "Plastic_Straws",
+        "5": "Food_wrappers",
+        "6": "Cigarette_Filters",
+        "7": "Vape_Cartridges",
+        "8": "Foam_Pieces",
+        "9": "Glass_Pieces",
+        "10": "Plastic_pieces",
       })
       .summarize({
         Plastic_Lids: (series) => series.sum(),
@@ -197,7 +197,7 @@ export class DataAnalysisComponent {
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    if (changes['query']) {
+    if (changes["query"]) {
       this.queryChanges.next(this.query);
     }
   }
